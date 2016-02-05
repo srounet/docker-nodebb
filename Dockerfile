@@ -29,6 +29,7 @@ RUN cd /opt/nodebb && npm install --production
 RUN apt-get install -y postfix
 RUN cd /opt/nodebb && npm install nodebb-plugin-emailer-ssl-smtp
 RUN cd /opt/nodebb && npm install nodebb-plugin-emailer-local
+RUN cd /opt/nodebb && npm install nodebb-plugin-dbsearch
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
