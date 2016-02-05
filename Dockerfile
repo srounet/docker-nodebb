@@ -25,6 +25,11 @@ RUN apt-get install imagemagick -y
 RUN git clone  https://github.com/NodeBB/NodeBB /opt/nodebb
 RUN cd /opt/nodebb && npm install --production
 
+# email
+RUN apt-get install -y postfix
+RUN cd /opt/nodebb && npm install nodebb-plugin-emailer-ssl-smtp
+RUN cd /opt/nodebb && npm install nodebb-plugin-emailer-local
+
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 COPY run-nodebb.sh /sbin/run-nodebb.sh
